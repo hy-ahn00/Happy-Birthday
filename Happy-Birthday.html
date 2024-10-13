@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,18 +7,18 @@
     <style>
         body {
             font-family: 'Luminari', cursive;
-            background-color: #a9cce2; /* Changed background color */
-            color: #717171; /* Changed main text color */
+            background-color: #a9cce2; /* Background color */
+            color: #717171; /* Main text color */
             text-align: center;
             position: relative; /* Make body relative to position canvas */
             overflow: hidden; /* Hide overflowing canvas */
         }
         h1 {
-            color: #717171; /* Changed heading text color */
+            color: #717171; /* Heading text color */
             margin-top: 50px;
         }
         p {
-            color: #69779a; /* Changed subtext color */
+            color: #69779a; /* Subtext color */
         }
         canvas {
             position: absolute;
@@ -38,7 +38,6 @@
     <canvas id="confettiCanvas"></canvas>
 
     <script>
-        // Confetti animation
         const canvas = document.getElementById('confettiCanvas');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
@@ -54,11 +53,11 @@
             const particle = {
                 x: random(0, canvas.width),
                 y: canvas.height,
-                radius: random(2, 6),
-                color: `hsl(${random(0, 360)}, 100%, 50%)`,
-                speed: random(1, 3),
+                radius: random(5, 12), // Larger particle size
+                color: `hsl(${random(0, 360)}, 70%, ${random(70, 90)}%)`, // Pastel colors
+                speed: random(1, 4), // Slightly larger speed
                 angle: random(0, Math.PI * 2),
-                drift: random(-0.5, 0.5),
+                drift: random(-0.8, 0.8), // Increased drift for a more grand effect
             };
             particles.push(particle);
         }
@@ -92,8 +91,8 @@
             requestAnimationFrame(animate);
         }
 
-        // Create confetti on load
-        for (let i = 0; i < 100; i++) {
+        // Create more confetti on load for a grander effect
+        for (let i = 0; i < 150; i++) { // Increased number of particles
             createParticle();
         }
         animate();
